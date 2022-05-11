@@ -32,7 +32,7 @@ const Social = () => {
 
   useEffect(() => {
     token &&
-      fetch(`${API.USERS}/kakaosignin`, {
+      fetch(`${API.USERS}/signin/kakao`, {
         method: 'POST',
         headers: {
           Authorization: token,
