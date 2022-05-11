@@ -2,6 +2,7 @@ const BASE_URL = `http://10.58.6.244:8000`;
 export const API = {
   USERS: `${BASE_URL}/users`,
   HOTELS: `${BASE_URL}/hotels`,
+  REVIEWS: `${BASE_URL}/reviews`,
 };
 
 const KAKAO_OAUTH = `https://kauth.kakao.com/oauth`;
