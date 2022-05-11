@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import Social from './pages/Social/Social';
 import Mypage from './pages/Mypage/Mypage';
 import Reservation from './pages/Reservation/Reservation';
+import Detail from './pages/Detail/Detail';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/oauth/callback/kakao" element={<Social />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/reservation" element={<Reservation />} />
+        <Route path="/products/:id" element={<Detail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

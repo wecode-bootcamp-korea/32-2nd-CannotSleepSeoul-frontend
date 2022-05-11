@@ -51,6 +51,8 @@ const Social = () => {
           localStorage.setItem('token', data.access_token);
           localStorage.setItem('profile_name', data.name);
           localStorage.setItem('profile_img', data.profile_image);
+          localStorage.setItem('profile_email', 'wecode@gmail.com');
+          localStorage.setItem('profile_phone', '01012341234');
           navigate('/');
         });
   }, [token, navigate]);
