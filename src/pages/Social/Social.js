@@ -32,7 +32,7 @@ const Social = () => {
 
   useEffect(() => {
     token &&
-      fetch(`${API.USERS}/kakaosignin`, {
+      fetch(`${API.USERS}/signin/kakao`, {
         method: 'POST',
         headers: {
           Authorization: token,
@@ -49,6 +49,8 @@ const Social = () => {
         })
         .then(data => {
           localStorage.setItem('token', data.access_token);
+          localStorage.setItem('profile_name', data.name);
+          localStorage.setItem('profile_img', data.profile_image);
           navigate('/');
         });
   }, [token, navigate]);
