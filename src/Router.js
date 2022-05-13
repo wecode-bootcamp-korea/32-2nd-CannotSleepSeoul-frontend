@@ -6,8 +6,7 @@ import UserSign from './pages/UserSign/UserSign';
 import ProductList from './pages/ProductList/ProductList';
 import Footer from './components/Footer/Footer';
 import Social from './pages/Social/Social';
-import LocationDropdown from './components/Nav/NavComponent/LocationDropdown';
-import ProfileDropdown from './components/Nav/NavComponent/ProfileDropdown';
+import Mypage from './pages/Mypage/Mypage';
 
 const Router = () => {
   return (
@@ -19,8 +18,7 @@ const Router = () => {
         <Route path="/users/sign_up" element={<UserSign page="signUp" />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/oauth/callback/kakao" element={<Social />} />
-        <Route path="/LocationDropdown" element={<LocationDropdown />} />
-        <Route path="/ProfileDropdown" element={<ProfileDropdown />} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
