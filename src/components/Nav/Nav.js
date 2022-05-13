@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TopBar from './NavComponent/TopBar';
 import NavSearchContainer from './NavComponent/NavSearchContainer';
-import nightSky from '../../assets/Nav_backgroundIMG/nightSky.jpg';
+import backgroundIMG from '../../assets/Nav_backgroundIMG/backgroundIMG.jpg';
 
 const Nav = () => {
   const [toggleSwtich, setToggleSwitch] = useState(false);
@@ -29,7 +29,7 @@ const Body = styled.div`
   margin-bottom: 90px;
 
   border: 1px solid black;
-  background-image: url(${nightSky});
+  background-image: url(${backgroundIMG});
   background-size: cover;
   background-position: center center;
   width: 100%;

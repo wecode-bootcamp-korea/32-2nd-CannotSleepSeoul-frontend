@@ -9,6 +9,7 @@ const TopBar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [mockData, setmockData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
     fetch('/data/NavMockData/NavMockData.json')
@@ -19,14 +20,26 @@ const TopBar = () => {
       });
   }, []);
 
+  const handleUserInput = e => {
+    setUserInput(e.target.value);
+    filterData(e);
+  };
+
   const filterData = e => {
     setFilteredData(
-      mockData.filter(data => data.name.startsWith(e.target.value))
+      mockData.filter(
+        data =>
+          data.name.startsWith(e.target.value) ||
+          data.gu.startsWith(e.target.value) ||
+          data.detail.startsWith(e.target.value)
+      )
     );
   };
 
   const topSearchEnter = e => {
-    navigate('/productList');
+    if (e.key === 'Enter') {
+      navigate(`/productList?location=${userInput}`);
+    }
   };
 
   const navigate = useNavigate();
@@ -49,7 +62,7 @@ const TopBar = () => {
           </TopSearchIcon>
           <TopSearchInput
             mockData={filteredData}
-            onChange={filterData}
+            onChange={handleUserInput}
             onKeyUp={topSearchEnter}
             type="text"
             placeholder="도시나 상품을 검색해보세요"
@@ -161,12 +174,13 @@ const Profile = styled.img`
   height: 45px;
   border-radius: 50%;
 `;
-const StateLogout = styled.button`
+const StateLogout = styled.div`
   display: flex;
   justify-content: right;
   padding: 0px;
   width: 200px;
   background-color: transparent;
+  border: none;
 `;
 
 const LoginBotton = styled.button`

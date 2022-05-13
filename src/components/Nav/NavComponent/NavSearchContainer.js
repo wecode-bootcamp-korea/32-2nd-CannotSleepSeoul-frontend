@@ -24,7 +24,12 @@ const NavSearchContainer = () => {
 
   const filterData = e => {
     setFilteredData(
-      mockData.filter(data => data.name.startsWith(e.target.value))
+      mockData.filter(
+        data =>
+          data.name.startsWith(e.target.value) ||
+          data.gu.startsWith(e.target.value) ||
+          data.detail.startsWith(e.target.value)
+      )
     );
   };
 
@@ -49,7 +54,7 @@ const NavSearchContainer = () => {
               onClick={openHotelAddressDropDown}
               onBlur={closeHotelAddressDropDown}
               type="text"
-              placeholder="제주도"
+              placeholder="신라스테이"
               onChange={filterData}
             />
 
