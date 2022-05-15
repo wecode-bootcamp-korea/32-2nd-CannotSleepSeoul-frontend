@@ -2,12 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import theme from '../../../styles/theme';
 
-export default function HotelInfo({ gu, img, name }) {
+export default function HotelInfo({
+  id,
+  gu,
+  price,
+  image_url,
+  name,
+  goToDetail,
+}) {
   return (
-    <FirstHotelContainer>
-      <img src={img} alt="hotel" />
+    <FirstHotelContainer
+      onClick={() => {
+        goToDetail(id);
+      }}
+    >
+      <img src={image_url} alt="hotel" />
       <FirstHotelInfo>
         <CategoryText>호텔 {gu}</CategoryText>
         <NameText>
@@ -17,7 +27,7 @@ export default function HotelInfo({ gu, img, name }) {
           <FontAwesomeIcon className="star" icon={faStar} /> 5.0
           <CommentCount>(16)</CommentCount>
         </Reputaion>
-        <PriceText>100,000원</PriceText>
+        <PriceText>{parseInt(price).toLocaleString()}원</PriceText>
       </FirstHotelInfo>
     </FirstHotelContainer>
   );
@@ -41,31 +51,31 @@ const FirstHotelInfo = styled.div`
 
 const CategoryText = styled.p`
   font-size: 12px;
-  color: ${theme.tertiary};
+  color: ${props => props.theme.tertiary};
 `;
 
 const NameText = styled.p`
   font-size: 15px;
   font-weight: 500;
-  color: ${theme.primary};
+  color: ${props => props.theme.primary};
 `;
 
 const Reputaion = styled.p`
   font-size: 14px;
   font-weight: 500;
-  color: ${theme.primary};
+  color: ${props => props.theme.primary};
   .star {
-    color: ${theme.blue};
+    color: ${props => props.theme.blue};
   }
 `;
 
 const CommentCount = styled.span`
   font-size: 14px;
-  color: ${theme.tertiary};
+  color: ${props => props.theme.tertiary};
 `;
 
 const PriceText = styled.p`
   font-size: 14px;
   font-weight: 500;
-  color: ${theme.primary};
+  color: ${props => props.theme.primary};
 `;

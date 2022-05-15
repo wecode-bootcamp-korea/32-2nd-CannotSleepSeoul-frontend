@@ -2,70 +2,70 @@
   {
     "hotels_id": 1,
     "gu": "강남",
-    "img": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
     "name": "스위트호텔",
     "price": 100000
   },
   {
     "hotels_id": 2,
     "gu": "송파",
-    "img": "https://t1.daumcdn.net/cfile/blog/262F5F465188855919",
+    "image_url": "https://t1.daumcdn.net/cfile/blog/262F5F465188855919",
     "name": "에이스호텔",
     "price": 100000
   },
   {
     "hotels_id": 3,
     "gu": "서초",
-    "img": "https://mblogthumb-phinf.pstatic.net/20160407_159/joara127_1460020541479zQYqH_JPEG/SAM_3499.JPG?type=w800",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20160407_159/joara127_1460020541479zQYqH_JPEG/SAM_3499.JPG?type=w800",
     "name": "민트호텔",
     "price": 100000
   },
   {
     "hotels_id": 4,
     "gu": "서초",
-    "img": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
     "name": "민들레호텔",
     "price": 100000
   },
   {
     "hotels_id": 5,
     "gu": "송파",
-    "img": "https://t1.daumcdn.net/cfile/blog/262F5F465188855919",
+    "image_url": "https://t1.daumcdn.net/cfile/blog/262F5F465188855919",
     "name": "진달래호텔",
     "price": 100000
   },
   {
     "hotels_id": 6,
     "gu": "강남",
-    "img": "https://mblogthumb-phinf.pstatic.net/20160407_159/joara127_1460020541479zQYqH_JPEG/SAM_3499.JPG?type=w800",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20160407_159/joara127_1460020541479zQYqH_JPEG/SAM_3499.JPG?type=w800",
     "name": "무궁화호텔",
     "price": 100000
   },
   {
     "hotels_id": 7,
     "gu": "서초",
-    "img": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
     "name": "서인천호텔",
     "price": 100000
   },
   {
     "hotels_id": 8,
     "gu": "송파",
-    "img": "https://t1.daumcdn.net/cfile/blog/262F5F465188855919",
+    "image_url": "https://t1.daumcdn.net/cfile/blog/262F5F465188855919",
     "name": "석남동호텔",
     "price": 100000
   },
   {
     "hotels_id": 9,
     "gu": "강남",
-    "img": "https://mblogthumb-phinf.pstatic.net/20160407_159/joara127_1460020541479zQYqH_JPEG/SAM_3499.JPG?type=w800",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20160407_159/joara127_1460020541479zQYqH_JPEG/SAM_3499.JPG?type=w800",
     "name": "수호텔",
     "price": 100000
   },
   {
     "hotels_id": 10,
     "gu": "서초",
-    "img": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
+    "image_url": "https://mblogthumb-phinf.pstatic.net/20140304_171/mdct777_139391674896999HAH_JPEG/1393916747709_20140227_172125.jpg?type=w2",
     "name": "청라호텔",
     "price": 100000
   }

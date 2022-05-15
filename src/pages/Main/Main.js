@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import MainHotelInfo from './components/MainHotelInfo';
 import SaleBanner from './components/SaleBanner';
@@ -6,23 +7,63 @@ import HotelInfo from './components/HotelInfo';
 import SliderComponent from '../../components/SliderComponent/SliderComponent';
 
 const CITY_NAME = [
-  { id: 1, city: '강남' },
-  { id: 2, city: '송파' },
-  { id: 3, city: '서초' },
+  { id: 1, city: '강남구' },
+  { id: 2, city: '송파구' },
+  { id: 3, city: '서초구' },
+];
+
+const BANNER = [
+  {
+    id: 1,
+    img: '/images/img1.jpg',
+  },
+  {
+    id: 2,
+    img: '/images/img2.jpg',
+  },
+  {
+    id: 3,
+    img: '/images/img3.jpg',
+  },
+  {
+    id: 4,
+    img: '/images/img4.jpg',
+  },
+  { id: 5, img: '/images/img5.jpg' },
+  { id: 6, img: '/images/img6.jpg' },
 ];
 
 const Main = () => {
+  const [hotelData, setHotelData] = useState([]);
   const [commonData, setCommonData] = useState([]);
 
+  const navigate = useNavigate();
+
+  const goToDetail = id => {
+    navigate(`/products/${id}`);
+  };
+
   useEffect(() => {
-    fetch('/data/MainData.json', {
+    fetch('http://10.58.6.244:8000/hotels/main', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setCommonData(data);
+        setHotelData(data.hotel_info);
+        const infos = [
+          data.hotel_info.slice(0, 10),
+          data.hotel_info.slice(10, 20),
+          data.hotel_info.slice(20, 30),
+        ];
+        setCommonData(
+          infos[0].map((info, index) => {
+            info.withHotel = [infos[1][index], infos[2][index]];
+            return info;
+          })
+        );
       });
   }, []);
+
   const settings = {
     infinite: false,
     speed: 400,
@@ -49,44 +90,56 @@ const Main = () => {
     slidesToScroll: 1,
   };
   return (
-    <MainWrapper>
-      <RecentText>최근 본 숙소</RecentText>
-      <SliderComponent settings={settings}>
-        {commonData.map(data => (
-          <MainHotelInfo
-            hotels_id={data.hotels_id}
-            gu={data.gu}
-            img={data.img}
-            name={data.name}
-            key={data.hotels_id}
-          />
-        ))}
-      </SliderComponent>
-      <Sale>할인혜택</Sale>
-      <SaleDiv>
-        <SliderComponent isSale={true} settings={settingsSale}>
-          {commonData.map(index => (
-            <SaleBanner key={index} />
+    commonData.length && (
+      <MainWrapper>
+        <RecentText>최근 본 숙소</RecentText>
+        <SliderComponent settings={settings}>
+          {commonData.map(data => (
+            <MainHotelInfo
+              id={data.id}
+              hotels_id={data.hotels_id}
+              price={data.price}
+              gu={data.gu}
+              image_url={data.image_url}
+              name={data.name}
+              key={data.id}
+              withHotel={data.withHotel}
+              goToDetail={goToDetail}
+            />
           ))}
         </SliderComponent>
-      </SaleDiv>
-      {CITY_NAME.map(data => (
-        <>
-          <City key={data.id}>{data.city}</City>
-          <SliderComponent settings={settingsIndividual}>
-            {commonData.map(data => (
-              <HotelInfo
-                hotels_id={data.hotels_id}
-                gu={data.gu}
-                img={data.img}
-                name={data.name}
-                key={data.hotels_id}
-              />
+        <Sale>할인혜택</Sale>
+        <SaleDiv>
+          <SliderComponent isSale={true} settings={settingsSale}>
+            {BANNER.map(data => (
+              <SaleBanner key={data.id} img={data.img} />
             ))}
           </SliderComponent>
-        </>
-      ))}
-    </MainWrapper>
+        </SaleDiv>
+        {CITY_NAME.map(data => (
+          <>
+            <City key={data.id}>{data.city}</City>
+            <SliderComponent settings={settingsIndividual}>
+              {hotelData.length &&
+                hotelData
+                  .filter(item => item.gu === data.city)
+                  .map(data => (
+                    <HotelInfo
+                      id={data.id}
+                      gu={data.gu}
+                      price={data.price}
+                      image_url={data.image_url}
+                      name={data.name}
+                      key={data.id}
+                      withHotel={data.withHotel}
+                      goToDetail={goToDetail}
+                    />
+                  ))}
+            </SliderComponent>
+          </>
+        ))}
+      </MainWrapper>
+    )
   );
 };
 
@@ -100,7 +153,7 @@ const RecentText = styled.div`
   margin: 10px auto;
   position: relative;
   z-index: 100;
-  color: ${({ theme }) => theme.primary};
+  color: ${props => props.theme.primary};
   font-size: 20px;
   font-weight: 500;
 `;
