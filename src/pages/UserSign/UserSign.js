@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { KAKAO_AUTHORIZE } from '../../config';
+import { KAKAO_API } from '../../config';
 
 const USER_SIGN_CONTENT = {
   signIn: {
@@ -26,7 +26,7 @@ const UserSign = ({ page }) => {
       <Emoji>👋</Emoji>
       <UserSignTitle>{title}</UserSignTitle>
       <UserSignParagraph>여행의 모든 것, 잠못자 서울</UserSignParagraph>
-      <KakaoLogin href={KAKAO_AUTHORIZE}>
+      <KakaoLogin href={KAKAO_API.AUTHORIZE}>
         <img alt="카카오 로그인" src="/images/kakao_login_medium_wide.png" />
       </KakaoLogin>
 
