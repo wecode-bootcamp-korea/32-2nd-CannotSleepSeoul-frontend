@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import Main from './pages/Main/Main';
 import UserSign from './pages/UserSign/UserSign';
 import ProductList from './pages/ProductList/ProductList';
+import Map from './pages/ProductList/common/Map';
 import Footer from './components/Footer/Footer';
 import Social from './pages/Social/Social';
 import LocationDropdown from './components/Nav/NavComponent/LocationDropdown';
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/users/sign_in" element={<UserSign page="signIn" />} />
         <Route path="/users/sign_up" element={<UserSign page="signUp" />} />
         <Route path="/products" element={<ProductList />} />
+        <Route path="/map" element={<Map />} />
         <Route path="/oauth/callback/kakao" element={<Social />} />
         <Route path="/LocationDropdown" element={<LocationDropdown />} />
         <Route path="/ProfileDropdown" element={<ProfileDropdown />} />

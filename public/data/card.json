@@ -1,0 +1,124 @@
+{
+  "hotel_list": [
+    {
+      "id": 1,
+      "name": "대구호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel1.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 10000,
+      "latitude": 37.279198185103794,
+      "longitude": 126.99884248593168
+    },
+    {
+      "id": 2,
+      "name": "zz호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel2.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 200000,
+      "latitude": 37.514416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 3,
+      "name": "ㅋㅋ호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel3.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 300000,
+      "latitude": 37.513416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 4,
+      "name": "경주호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel4.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 40000,
+      "latitude": 37.512416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 5,
+      "name": "포항호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel5.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 500000,
+      "latitude": 37.511416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 6,
+      "name": "광주호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel6.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 600000,
+      "latitude": 37.510416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 7,
+      "name": "인천호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel7.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 7000,
+      "latitude": 37.509416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 8,
+      "name": "부산호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel8.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 800000,
+      "latitude": 37.508416,
+      "longitude": 127.053658
+    },
+    {
+      "id": 9,
+      "name": "대전호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel9.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 900000,
+      "latitude": 37.26357276,
+      "longitude": 127.0286009
+    },
+    {
+      "id": 10,
+      "name": "서울호텔",
+      "image": "https://github.com/alexms0316/git_prac_images/blob/main/CSS_images/hotel10.jpg?raw=true",
+      "city": "대구",
+      "gu": "남구",
+      "ro": "희망로",
+      "detail": "57 201동 1803호",
+      "price": 3100000,
+      "latitude": 37.529416,
+      "longitude": 127.053658
+    }
+  ]
+}
