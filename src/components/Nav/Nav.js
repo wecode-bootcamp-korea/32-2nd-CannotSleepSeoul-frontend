@@ -45,7 +45,6 @@ const NavAll = styled.div`
 const NavTitle = styled.div`
   margin: 23px 0px;
   height: 44px;
-
   font-size: 36px;
   font-weight: bold;
   color: white;
