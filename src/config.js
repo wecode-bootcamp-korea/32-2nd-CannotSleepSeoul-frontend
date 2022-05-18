@@ -1,4 +1,4 @@
-const BASE_URL = `http://10.58.4.3:8000`;
+const BASE_URL = `http://10.58.4.153:8000`;
 export const API = {
   USERS: `${BASE_URL}/users`,
   HOTELS: `${BASE_URL}/hotels`,

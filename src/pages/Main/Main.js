@@ -44,7 +44,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.6.244:8000/hotels/main', {
+    fetch('http://10.58.4.153:8000/hotels/main', {
       method: 'GET',
     })
       .then(res => res.json())
