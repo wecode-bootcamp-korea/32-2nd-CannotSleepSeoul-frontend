@@ -1,48 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProfileDropdown from './ProfileDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const TopBar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [mockData, setmockData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch('/data/NavMockData/NavMockData.json')
-      .then(res => res.json())
-      .then(data => {
-        setmockData(data);
-        setFilteredData(data);
-      });
-  }, []);
-
-  const handleUserInput = e => {
+  const topbarHandleUserInput = e => {
     setUserInput(e.target.value);
-    filterData(e);
   };
 
-  const filterData = e => {
-    setFilteredData(
-      mockData.filter(
-        data =>
-          data.name.startsWith(e.target.value) ||
-          data.gu.startsWith(e.target.value) ||
-          data.detail.startsWith(e.target.value)
-      )
-    );
-  };
-
-  const topSearchEnter = e => {
+  const topbarSearchEnter = e => {
     if (e.key === 'Enter') {
-      navigate(`/productList?location=${userInput}`);
+      navigate(`/products?search=${userInput}`);
     }
   };
-
-  const navigate = useNavigate();
 
   const goToKakao = () => {
     navigate('/users/sign_in');
@@ -55,21 +31,24 @@ const TopBar = () => {
   return (
     <StyledTopBar>
       <LogoNSearch>
-        <TopLogo>로고</TopLogo>
+        <TopLogo>
+          <Link to="/">
+            <TopLogoImage alt="잠못자, 서울" src="/images/logo-white.png" />
+          </Link>
+        </TopLogo>
         <TopSearch>
           <TopSearchIcon>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </TopSearchIcon>
           <TopSearchInput
-            mockData={filteredData}
-            onChange={handleUserInput}
-            onKeyUp={topSearchEnter}
+            onChange={topbarHandleUserInput}
+            onKeyUp={topbarSearchEnter}
             type="text"
             placeholder="도시나 상품을 검색해보세요"
           />
         </TopSearch>
       </LogoNSearch>
-
+      7
       <TopRigthButton>
         {localStorage.getItem('token') ? (
           <StateLogin>
@@ -108,53 +87,62 @@ const LogoNSearch = styled.div`
   align-items: center;
 `;
 
-const TopLogo = styled.p`
+const TopLogo = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 28px 0px 0px;
   width: 128px;
-  height: 28px;
-  border: solid 1px white;
+  /* height: 28px; */
+  margin: 0px 28px 0px 0px;
   color: white;
+`;
+
+const TopLogoImage = styled.img`
+  width: 100%;
+  height: auto;
 `;
 
 const TopSearch = styled.p`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 0px 110px 0px 0px;
-  padding: 0px 0px 0px 20px;
   width: 326px;
   height: 48px;
-  color: white;
-  background-color: rgba(245, 246, 255, 0.15);
+  padding: 0px 0px 0px 20px;
   border-radius: 8px;
   border: none;
+  margin: 0px 110px 0px 0px;
+  color: white;
+  background-color: rgba(245, 246, 255, 0.15);
 `;
-const TopSearchIcon = styled.p`
+const TopSearchIcon = styled.span`
+  display: block;
   margin: 0px 20px 0px 0px;
 `;
 
 const TopSearchInput = styled.input`
-  background-color: transparent;
   border: none;
+  color: #fff;
   font-size: 15px;
   font-stretch: 100%;
   font-weight: bolder;
-  color: white;
+  background-color: transparent;
   cursor: text;
+
+  ::placeholder {
+    color: white;
+  }
 `;
+
 const TopRigthButton = styled.div`
   position: relative;
   width: 200px;
-  background-color: transparent;
   border: none;
   border-radius: 3px;
   color: white;
   font-size: 15px;
   font-weight: 600;
-  font: white;
+  background-color: transparent;
   cursor: pointer;
 `;
 
@@ -177,17 +165,17 @@ const Profile = styled.img`
 const StateLogout = styled.div`
   display: flex;
   justify-content: right;
-  padding: 0px;
   width: 200px;
-  background-color: transparent;
+  padding: 0px;
   border: none;
+  background-color: transparent;
 `;
 
 const LoginBotton = styled.button`
   width: 122px;
   height: 36px;
-  background-color: transparent;
   border: white 1px solid;
   color: white;
+  background-color: transparent;
   cursor: pointer;
 `;

@@ -19,7 +19,7 @@ const LocationDropdown = ({ mockData }) => {
                   <DropdownText>
                     <StyledName key={data.id}>{data.name} </StyledName>
                     <StyledAddress>
-                      {`${data.city} ${data.gu} ${data.ro} ${data.detail}`}
+                      {`서울시 ${data.gu} ${data.ro} ${data.detail}`}
                     </StyledAddress>
                   </DropdownText>
                 </DropdownContent>
@@ -41,10 +41,10 @@ const StyledDropdown = styled.div`
   left: 0;
   width: 440px;
   padding: px 0px;
+  border-radius: 5px;
   font-size: 15px;
   font-weight: 600;
   background-color: white;
-  border-radius: 5px;
   box-shadow: rgb(33 37 41 / 30%) 0px 4px 8px 0px;
   z-index: 40;
 `;
@@ -60,29 +60,28 @@ const DropdownContent = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 24px 16px 6px 16px;
   width: 100%;
   height: 45px;
+  padding: 24px 16px 6px 16px;
   cursor: pointer;
-  /* border: 2px red solid; */
 `;
 
 const DropdownIcon = styled.span`
-  color: ${({ theme }) => theme.blue};
-
   margin: 7px 15px 0px 0px;
+  color: ${({ theme }) => theme.blue};
 `;
 const DropdownText = styled.p`
   width: 300px;
 `;
 
-const StyledName = styled.li`
+const StyledName = styled.span`
+  display: block;
   color: ${({ theme }) => theme.primary};
   font-size: 15px;
   font-weight: 600;
 `;
 
-const StyledAddress = styled.li`
+const StyledAddress = styled.span`
   margin-top: 4px;
   font-size: 12px;
   line-height: 16px;

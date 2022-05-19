@@ -32,14 +32,14 @@ const ProfileDropdown = () => {
 export default ProfileDropdown;
 
 const DropdownContent = styled.div`
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 60px;
   right: 0;
-  display: flex;
-  flex-direction: column;
+  border: 1px solid ${({ theme }) => theme.border};
   border-radius: 2px;
   background-color: white;
-  border: 1px solid ${({ theme }) => theme.border};
 `;
 
 const Button = styled.button`

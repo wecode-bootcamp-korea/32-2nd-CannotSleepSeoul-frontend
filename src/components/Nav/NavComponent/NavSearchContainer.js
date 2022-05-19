@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LocationDropdown from './LocationDropdown';
 
@@ -7,38 +8,51 @@ import {
   faMagnifyingGlass,
   faCalendar,
 } from '@fortawesome/free-solid-svg-icons';
+import { API } from '../../../config';
 
 const NavSearchContainer = () => {
   const [isClicked, setIsCLicked] = useState(false);
   const [mockData, setmockData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [ctnFilteredData, setCtnFilteredData] = useState([]);
+  const [userInput, setUserInput] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/NavMockData/NavMockData.json')
+    fetch(`${API.HOTELS}/main`)
       .then(res => res.json())
       .then(data => {
-        setmockData(data);
-        setFilteredData(data);
+        setmockData(data.hotel_info);
+        setCtnFilteredData(data.hotel_info.slice(0, 10));
       });
   }, []);
 
   const filterData = e => {
-    setFilteredData(
-      mockData.filter(
-        data =>
-          data.name.startsWith(e.target.value) ||
-          data.gu.startsWith(e.target.value) ||
-          data.detail.startsWith(e.target.value)
-      )
+    setCtnFilteredData(
+      mockData
+        .filter(
+          data =>
+            data.name.startsWith(e.target.value) ||
+            data.gu.startsWith(e.target.value) ||
+            data.detail.startsWith(e.target.value)
+        )
+        .slice(0, 10)
     );
   };
 
-  const openHotelAddressDropDown = () => {
-    setIsCLicked(true);
+  const ctnHandleInput = e => {
+    setUserInput(e.target.value);
+    filterData(e);
   };
 
-  const closeHotelAddressDropDown = () => {
-    setIsCLicked(false);
+  //setCtnFilteredData는 다음페이지로 어떻게 전달되는걸까?
+  const ctnSearchEnter = e => {
+    if (e.key === 'Enter') {
+      navigate(`/products?search=${userInput}`);
+    }
+  };
+
+  const toggleHotelAddressDropDown = () => {
+    setIsCLicked(prev => !prev);
   };
 
   return (
@@ -51,14 +65,15 @@ const NavSearchContainer = () => {
             </NavIconGlass>
 
             <NavLocationInput
-              onClick={openHotelAddressDropDown}
-              onBlur={closeHotelAddressDropDown}
+              mockData={ctnFilteredData}
+              onChange={ctnHandleInput}
+              onKeyUp={ctnSearchEnter}
+              onClick={toggleHotelAddressDropDown}
               type="text"
               placeholder="신라스테이"
-              onChange={filterData}
             />
 
-            {isClicked && <LocationDropdown mockData={filteredData} />}
+            {isClicked && <LocationDropdown mockData={ctnFilteredData} />}
           </NavLocationBox>
           <NavCalendarBox>
             <NavIconCalendar>
@@ -85,9 +100,9 @@ const StyledNavSearchContainer = styled.div`
   height: 95px;
   width: 1060px;
   padding: 13px 0px;
-  background-color: rgb(255, 255, 255);
   border-radius: 8px;
   box-shadow: rgb(33 37 41 / 10%) 0px 4px 8px 0px;
+  background-color: rgb(255, 255, 255);
   z-index: 110;
 `;
 
@@ -96,11 +111,11 @@ const NavSearchBox = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background-color: rgb(255, 255, 255);
   margin: 10px;
   height: 48px;
   border-radius: 8px;
   color: rgb(52, 58, 64);
+  background-color: rgb(255, 255, 255);
 `;
 
 const Inputs = styled.span`
@@ -113,22 +128,22 @@ const Inputs = styled.span`
 const NavLocationBox = styled.span`
   height: 100%;
   width: 100%;
-  margin-right: 10px;
   padding: 0px 20px;
   border-radius: 8px;
+  margin-right: 10px;
   background-color: #f6f7f7;
 `;
 
 const NavLocationInput = styled.input`
   flex-grow: 1;
-  padding: 0px 15px;
-  margin-right: 0px;
   height: 100%;
   width: 80%;
+  padding: 0px 15px;
+  border: none;
+  margin-right: 0px;
   font-weight: 500;
   font-size: 16px;
   background-color: #f6f7f7;
-  border: none;
 
   &:focus {
     border: none;
@@ -147,14 +162,14 @@ const NavIconGlass = styled.span`
 const NavIconCalendar = styled(NavIconGlass)``;
 
 const NavBotton = styled.button`
-  padding: 0px 32px;
   height: 100%;
   width: 135px;
+  padding: 0px 32px;
   border-radius: 4px;
   border: none;
   color: white;
-  background-color: ${({ theme }) => theme.blue};
   font-weight: bold;
   font-size: 16px;
+  background-color: ${({ theme }) => theme.blue};
   cursor: pointer;
 `;
