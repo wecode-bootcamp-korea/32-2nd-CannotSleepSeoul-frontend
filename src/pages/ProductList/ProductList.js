@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import CardList from './common/CardList';
 import ListSidebar from './common/ListSidebar';
+import { API } from '../../config';
 
 const ProductList = () => {
   const [hotelData, setHotelData] = useState([]);
@@ -17,10 +18,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetch(
-      `http://10.58.6.244:8000/hotels/list?offset=${offset}&limit=${LIMIT}`
-
-      // TODO
-      // 'http://localhost:3000/data/card.json'
+      `${API.HOTELS}/list${location.search}&offset=${offset}&limit=${LIMIT}`
     )
       .then(res => res.json())
       .then(data =>
