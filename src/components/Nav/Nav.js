@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TopBar from './NavComponent/TopBar';
 import NavSearchContainer from './NavComponent/NavSearchContainer';
 import backgroundIMG from '../../assets/Nav_backgroundIMG/backgroundIMG.jpg';
+import { useLocation } from 'react-router-dom';
 
 const Nav = () => {
   const [toggleSwtich, setToggleSwitch] = useState(false);
@@ -10,6 +11,9 @@ const Nav = () => {
   const toggleCloser = () => {
     setToggleSwitch(false);
   };
+
+  const location = useLocation();
+  if (location.pathname === '/map') return null;
   return (
     <Body toggleCloser={toggleCloser}>
       <NavAll>

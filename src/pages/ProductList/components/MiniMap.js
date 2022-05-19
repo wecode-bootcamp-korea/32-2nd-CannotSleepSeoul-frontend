@@ -80,8 +80,6 @@ const MiniMap = ({ hotelData }) => {
 
       setMap(map);
     });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hotelData]);
 
   const doExpand = () => {

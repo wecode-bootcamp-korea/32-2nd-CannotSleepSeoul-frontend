@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
-const Card = ({ data }) => {
-  const { city, gu, ro, detail, image, name, price, rating } = data;
+const Card = ({ hotelData, wonValue, locationValue }) => {
+  const { city, gu, ro, detail, image, name, price } = hotelData;
   const [position, setPosition] = useState({});
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Card = ({ data }) => {
     return distance;
   };
 
-  const distance = Math.round(computeDistance(position, data) * 1000);
+  const distance = Math.round(computeDistance(position, hotelData) * 1000);
 
   const toLocaleDistance = () => {
     if (distance > 1000) {
@@ -52,9 +52,11 @@ const Card = ({ data }) => {
   const navigate = useNavigate();
 
   const goToDetail = () => {
-    navigate(`/products/${data.hotel_id}`);
+    navigate(`/products/${hotelData.hotel_id}`);
   };
 
+  if (wonValue < hotelData.price || locationValue < distance / 1000)
+    return null;
   return (
     <Container onClick={goToDetail}>
       <Image>
@@ -66,7 +68,7 @@ const Card = ({ data }) => {
           <Icon>
             <FontAwesomeIcon icon={faStar} />
           </Icon>
-          <p>{rating}4.5</p>
+          <p>4.5</p>
           <Sub>
             ・ {city} {gu} {ro} {detail}
           </Sub>

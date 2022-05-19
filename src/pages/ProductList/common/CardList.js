@@ -3,15 +3,29 @@ import styled from 'styled-components';
 import Card from '../common/Card';
 import MiniMap from '../components/MiniMap';
 
-const CardList = ({ hotelData, cardListRef, scrollRef, view }) => {
+const CardList = ({
+  hotelData,
+  cardListRef,
+  scrollRef,
+  view,
+  wonValue,
+  locationValue,
+}) => {
   return (
     <Container ref={cardListRef}>
       {view ? (
         <>
           <Caption>검색된 숙소 {hotelData.length}개</Caption>
 
-          {hotelData.map(data => {
-            return <Card data={data} key={data.hotel_id} />;
+          {hotelData.map(hotelData => {
+            return (
+              <Card
+                hotelData={hotelData}
+                key={hotelData.hotel_id}
+                wonValue={wonValue}
+                locationValue={locationValue}
+              />
+            );
           })}
 
           <div ref={scrollRef} />

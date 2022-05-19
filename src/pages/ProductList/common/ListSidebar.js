@@ -12,12 +12,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import FlexibleBtn from '../components/FlexibleBtn';
 
-const ListSidebar = ({ hotelData, setView }) => {
-  const [showFilter, setShowFilter] = useState(false);
+const ListSidebar = ({
+  hotelData,
+  setView,
+  wonValue,
+  setWonValue,
+  locationValue,
+  setLocationValue,
+  starValue,
+  setStarValue,
+}) => {
   const [price, setPrice] = useState([]);
-  const [wonValue, setWonValue] = useState(0);
-  const [locationValue, setLocationValue] = useState(0);
-  const [starValue, setStarValue] = useState(1);
+  const [showFilter, setShowFilter] = useState(false);
 
   const icon = [faList, faMap, faFilter];
 
@@ -40,12 +46,14 @@ const ListSidebar = ({ hotelData, setView }) => {
   };
 
   const seekbarController = e => {
-    if (e.target.id === 'won') {
-      setWonValue(e.target.valueAsNumber);
-    } else if (e.target.id === 'location') {
-      setLocationValue(e.target.valueAsNumber);
-    } else if (e.target.id === 'star') {
-      setStarValue(e.target.valueAsNumber);
+    const { id, valueAsNumber } = e.target;
+
+    if (id === 'won') {
+      setWonValue(valueAsNumber);
+    } else if (id === 'location') {
+      setLocationValue(valueAsNumber);
+    } else if (id === 'star') {
+      setStarValue(valueAsNumber);
     }
   };
 
