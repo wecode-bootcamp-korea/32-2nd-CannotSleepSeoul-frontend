@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TopBar from './NavComponent/TopBar';
 import NavSearchContainer from './NavComponent/NavSearchContainer';
-import backgroundIMG from '../../assets/Nav_backgroundIMG/backgroundIMG.jpg';
+import backgroundIMG from '../../assets/nav_background-img.jpg';
 import { useLocation } from 'react-router-dom';
 
 const Nav = () => {
@@ -30,19 +30,17 @@ export default Nav;
 const Body = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 90px;
-
-  border: 1px solid black;
-  background-image: url(${backgroundIMG});
-  background-size: cover;
-  background-position: center center;
   width: 100%;
   height: 280px;
+  border: 1px solid black;
+  margin-bottom: 90px;
+  background-image: url('${backgroundIMG}');
+  background-size: cover;
+  background-position: center center;
 `;
 
 const NavAll = styled.div`
   width: 1060px;
-
   background-color: transparent;
 `;
 

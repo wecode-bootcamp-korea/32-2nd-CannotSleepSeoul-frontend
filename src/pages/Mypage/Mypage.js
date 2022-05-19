@@ -1,37 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProductInfo from '../Reservation/components/ProductInfo';
 
 const Mypage = () => {
   return (
-    <>
-      <Body>
-        <MypageAll>
-          <PageTitle>마이페이지</PageTitle>
+    <Body>
+      <MypageAll>
+        <PageTitle>마이페이지</PageTitle>
 
-          <StyledAll>
-            <ProfileBox>
-              <PictureBox>
-                <Picture src={localStorage.getItem('profile_img')} />
-                <UserName> {localStorage.getItem('profile_name')}</UserName>
-              </PictureBox>
+        <StyledAll>
+          <ProfileBox>
+            <PictureBox>
+              <Picture src={localStorage.getItem('profile_img')} />
+              <UserName> {localStorage.getItem('profile_name')}</UserName>
+            </PictureBox>
 
-              <PrivacyInfo>
-                {PRIVACYINFO_LIST.map(data => {
-                  return (
-                    <InfoForCenter key={data.id}>
-                      <Title>{data.infoTitle} </Title>
-                      <Info>{localStorage.getItem(data.storageKey)}</Info>
-                    </InfoForCenter>
-                  );
-                })}
-              </PrivacyInfo>
-            </ProfileBox>
-            <ReservationBox>예약 확인</ReservationBox>
-          </StyledAll>
-        </MypageAll>
-      </Body>
-      ;햐
-    </>
+            <PrivacyInfo>
+              {PRIVACYINFO_LIST.map(data => {
+                return (
+                  <InfoForCenter key={data.id}>
+                    <Title>{data.infoTitle} </Title>
+                    <Info>{localStorage.getItem(data.storageKey)}</Info>
+                  </InfoForCenter>
+                );
+              })}
+            </PrivacyInfo>
+          </ProfileBox>
+          {localStorage.getItem('reservationData') && (
+            <ReservationBox>
+              <ReservationTitle>예약하기</ReservationTitle>
+              <ReservationInfo>
+                <ProductInfo
+                  commonData={JSON.parse(
+                    localStorage.getItem('reservationData')
+                  )}
+                />
+              </ReservationInfo>
+            </ReservationBox>
+          )}
+        </StyledAll>
+      </MypageAll>
+    </Body>
   );
 };
 
@@ -51,9 +60,9 @@ const StyledAll = styled.div`
   height: 1132px;
 `;
 const PageTitle = styled.div`
+  margin-bottom: 17px;
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 17px;
 `;
 
 const ProfileBox = styled.div`
@@ -67,9 +76,8 @@ const ProfileBox = styled.div`
 const Picture = styled.img`
   width: 80px;
   height: 80px;
-  margin-bottom: 20px;
-  /* border: 2px solid red; */
   border-radius: 50%;
+  margin-bottom: 20px;
 `;
 
 const PictureBox = styled.div`
@@ -77,9 +85,9 @@ const PictureBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 22px;
   width: 250px;
   height: 250px;
+  padding-top: 22px;
   border: 2px solid ${({ theme }) => theme.border};
 `;
 
@@ -119,12 +127,22 @@ const Info = styled.span`
 `;
 
 const ReservationBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 788px;
-  height: 757px;
+  height: 460px;
   border: 2px solid ${({ theme }) => theme.border};
+  padding: 20px 10px;
+`;
+
+const ReservationTitle = styled.h4`
+  font-size: 24px;
+  font-weight: 500;
+`;
+
+const ReservationInfo = styled.div`
+  margin-top: 20px;
+
+  /* border: 2px red solid; */
+  padding: 10px;
 `;
 
 const PRIVACYINFO_LIST = [

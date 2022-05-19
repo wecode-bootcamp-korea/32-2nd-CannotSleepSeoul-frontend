@@ -72,7 +72,7 @@ const InfoFlexDiv = styled.div`
 `;
 
 const SelectRoom = styled.div`
-  width: 680px;
+  width: 100%;
   height: 54px;
   display: flex;
   justify-content: space-between;
