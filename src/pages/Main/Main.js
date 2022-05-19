@@ -5,6 +5,7 @@ import MainHotelInfo from './components/MainHotelInfo';
 import SaleBanner from './components/SaleBanner';
 import HotelInfo from './components/HotelInfo';
 import SliderComponent from '../../components/SliderComponent/SliderComponent';
+import { API } from '../../config';
 
 const CITY_NAME = [
   { id: 1, city: '강남구' },
@@ -44,9 +45,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.4.153:8000/hotels/main', {
-      method: 'GET',
-    })
+    fetch(`${API.HOTELS}/main`)
       .then(res => res.json())
       .then(data => {
         setHotelData(data.hotel_info);
