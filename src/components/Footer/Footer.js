@@ -1,11 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import FooterCustomer from './FooterCustomer/FooterCustomer';
 import FooterInfo from './FooterInfo/FooterInfo';
 import FooterTerms from './FooterTerms/FooterTerms';
 
 const Footer = () => {
+  const location = useLocation();
+  if (location.pathname === '/map') return null;
   return (
     <StyledFooter>
       <FooterWrapperTop>

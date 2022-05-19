@@ -81,8 +81,6 @@ const Map = () => {
 
       setMap(map);
     });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const setZoomCur = () => {
