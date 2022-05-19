@@ -3,17 +3,22 @@ import styled from 'styled-components';
 import AddReserve from './AddReserve';
 
 const INPUT_DATA = [
-  { id: 1, title: '한글이름', value: '전형준', otherValue: '홍길동' },
+  {
+    id: 1,
+    title: '한글이름',
+    value: localStorage.getItem('profile_name'),
+    otherValue: '홍길동',
+  },
   {
     id: 2,
     title: '이메일 주소',
-    value: 'wecode@gmail.com',
+    value: localStorage.getItem('profile_email'),
     otherValue: 'example@example.com',
   },
   {
     id: 3,
     title: '휴대전화 번호',
-    value: '01093950178',
+    value: localStorage.getItem('profile_phone'),
     otherValue: '01012345678',
   },
 ];
