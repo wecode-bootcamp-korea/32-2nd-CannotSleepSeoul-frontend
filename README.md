@@ -47,29 +47,41 @@
 ### 구현 기능
 
 - Main
+
    ![01-main](https://user-images.githubusercontent.com/73154157/169675198-cd531c6c-dd87-4dec-90ec-9834c03a7070.gif)
 
 - Nav
+
    ![02-nav-1](https://user-images.githubusercontent.com/73154157/169675202-6983881a-b456-4fbc-80c6-96e8efa15c3e.gif)
    - dropdown
-   ![02-nav](https://user-images.githubusercontent.com/73154157/169675201-871e7847-37e0-4498-96f1-d4fbcc117bb7.gif)
+
+     ![02-nav](https://user-images.githubusercontent.com/73154157/169675201-871e7847-37e0-4498-96f1-d4fbcc117bb7.gif)
 - Item List
+
    ![03-list](https://user-images.githubusercontent.com/73154157/169675205-61c56910-ed66-4e68-8f99-154b7389c461.gif)
    - kakao map API
-   ![04-map](https://user-images.githubusercontent.com/73154157/169675206-c03b1788-639b-4437-8d8d-74e7ef507049.gif)
+
+     ![04-map](https://user-images.githubusercontent.com/73154157/169675206-c03b1788-639b-4437-8d8d-74e7ef507049.gif)
 - Detail
+
    ![05-detail-detail](https://user-images.githubusercontent.com/73154157/169675208-f3ccdac0-834a-43c5-a5d9-9e6ad8a50242.gif)
    - Calendar
-   ![05-detail-calendar](https://user-images.githubusercontent.com/73154157/169675207-1286e2b7-f458-40ad-9a58-5083bf266a31.gif)
+
+     ![05-detail-calendar](https://user-images.githubusercontent.com/73154157/169675207-1286e2b7-f458-40ad-9a58-5083bf266a31.gif)
    - Review
-   ![05-detail-review](https://user-images.githubusercontent.com/73154157/169675209-c153007c-50dc-4cdb-9382-ed9feece2361.gif)
+
+     ![05-detail-review](https://user-images.githubusercontent.com/73154157/169675209-c153007c-50dc-4cdb-9382-ed9feece2361.gif)
    - Scroll
-   ![05-detail-scroll](https://user-images.githubusercontent.com/73154157/169675210-f75a6b0d-b846-4f53-884b-d0cc67e64437.gif)
+
+     ![05-detail-scroll](https://user-images.githubusercontent.com/73154157/169675210-f75a6b0d-b846-4f53-884b-d0cc67e64437.gif)
 - Kakao Social Login
+
    ![06-signin](https://user-images.githubusercontent.com/73154157/169675211-d3afea46-a2fb-4ac2-9b7a-08616d07f78c.gif)
 - Reservation
+
    ![07-reservation](https://user-images.githubusercontent.com/73154157/169675212-436ead24-8c58-4590-95eb-46639fc34e29.gif)
 - My page
+
   ![08-mypage](https://user-images.githubusercontent.com/73154157/169675213-15c2277e-1853-47f1-8742-7b3fbdd1d4ad.gif)
 
 ## Reference
